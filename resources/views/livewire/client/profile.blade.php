@@ -1,27 +1,23 @@
-<div class="grid gap-2 p-4 px-8 bg-[#0785CA] h-svh">
+<div class="grid gap-2 p-4 px-8 h-svh overflow-auto soft-scrollbar max-w-md w-full m-auto">
     <div>
-        <h2>GET STAMP TO GET</h2>
-        <h2>THE BIG MOVE FROM OUR FLYLAB</h2>
-        {{$client->name}}
-        {{$data}}
+        <div class="flex justify-between items-center">
+            <a href="{{route('home')}}">
+        <img src="{{asset('img/hokaflylabtype.png')}}"/>
+            </a>
+        <x-button.circle lg white 
+        onclick="window.scanner._active?scanner.stop():scanner.start()" 
+        icon="qrcode"/>
+        </div>
+        <h2 class="text-xl font-bold">GET STAMP TO GET</h2>
+        <h2 class="text-xl font-bold">THE BIG MOVE FROM OUR FLYLAB</h2>
     </div>
     <div>
-        <div class="aspect-square w-3/5 bg-black m-auto border-8 border-white rounded-3xl max-w-60">
+        <div class="aspect-square w-full bg-black m-auto border-8 border-white rounded-3xl max-w-60">
             <div id="video-container" class="h-full rounded-2xl" >
                 <video id="qr-video" class="h-full rounded-2xl object-cover"></video>
             </div>
         </div>
-        <h2 class="text-center mt-8">SCAN QR CODE</h2>
-
-{{-- <b>Detected QR code: </b> --}}
-{{-- <span id="cam-qr-result">None</span> --}}
-
-{{-- <br> --}}
-{{-- <b>Last detected at: </b> --}}
-{{-- <span id="cam-qr-result-timestamp"></span> --}}
-<br>
-<x-button label="start" id="start-button" />
-<x-button label="Stop" id="stop-button" />
+        <h2 class="text-center mt-8 text-xl font-bold">SCAN QR CODE</h2>
         
     </div>
     <div>
@@ -118,18 +114,25 @@
         // flashToggle.addEventListener('click', () => {
         //     scanner.toggleFlash().then(() => flashState.textContent = scanner.isFlashOn() ? 'on' : 'off');
         // });
+        function toggleScanner(){
+            if(window.scanner._active){
+                scanner.stop();
+            }else{
+                scanner.start();
+            }
+            alert('window.scanner._active');
+        }
+        // document.getElementById('start-button').addEventListener('click', () => {
+        //     scanner.start();
+        //     @this.set('data',1)
+        //     this.Livewire.emit('setFooProperty', "test"); 
+        // });
 
-        document.getElementById('start-button').addEventListener('click', () => {
-            scanner.start();
-            @this.set('data',1)
-            this.Livewire.emit('setFooProperty', "test"); 
-        });
-
-        document.getElementById('stop-button').addEventListener('click', () => {
-            scanner.stop();
-            @this.set('data',2)
-            this.Livewire.emit('setFooProperty', "test"); 
-        });
+        // document.getElementById('stop-button').addEventListener('click', () => {
+        //     scanner.stop();
+        //     @this.set('data',2)
+        //     this.Livewire.emit('setFooProperty', "test"); 
+        // });
 
         // ####### File Scanning #######
 

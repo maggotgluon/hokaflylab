@@ -18,8 +18,9 @@
     @endauth
 </div>
     @yield('content')
-    
+    <main class="bg-primary text-white">
     @isset($slot)
         {{ $slot }}
     @endisset
+    </main>
 @endsection

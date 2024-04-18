@@ -23,7 +23,7 @@ class Login extends Component
     ];
 
     public function mount(){
-        // Auth::logout();
+        Auth::logout();
         $this->name='user';
         $this->phone='0809166690';
         // dd(auth());

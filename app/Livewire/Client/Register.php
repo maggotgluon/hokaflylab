@@ -41,6 +41,9 @@ class Register extends Component
         $newClient = client::create($client);
         $newUser = User::create($client);
 
-        dd('regis',$client,$newClient,$newUser);
+        if($newUser){
+            return redirect(route('client.login'));
+        }
+        // dd('regis',$client,$newClient,$newUser);
     }
 }

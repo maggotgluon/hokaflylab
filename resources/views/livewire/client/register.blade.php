@@ -1,16 +1,21 @@
 <div class="grid gap-2 p-4 px-8 bg-[#0785CA] h-svh">
     <div>
-        <h1>HOLA<br>FLY LAB</h1>
-        <h2>REGISTRATION</h2>
+        <a href="{{route('home')}}">
+        <img src="{{asset('img/hokaflylabtype.png')}}"/>
+        </a>
+        <h2 class="text-xl font-bold">REGISTRATION</h2>
     </div>
     <div>
         <form class="grid gap-4 py-4" wire:submit.prevent="register">
-        <x-input label="NAME" wire:model.lazy="name"/>
-        <x-input label="PHONE NO." wire:model.lazy="phone"/>
-        <x-input label="EMAIL" wire:model.lazy="email"/>
+        <label for="name">NAME</label>
+        <x-input auto-focus wire:model.lazy="name"/>
+        <label for="phone">PHONE NO.</label>
+        <x-input  wire:model.lazy="phone"/>
+        <label for="email">EMAIL</label>
+        <x-input  wire:model.lazy="email"/>
         <div class=" grid grid-cols-2 gap-4">
-            <x-button label="CONFIRM" type="submit" wire:click="register"/>
-            <x-button label="CANCEL" :href="route('home')"/>
+            <x-button outline white label="CONFIRM" type="submit" wire:click="register"/>
+            <x-button outline white label="CANCEL" :href="route('home')"/>
         </div>
         </form>
         

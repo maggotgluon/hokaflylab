@@ -21,16 +21,11 @@ class Profile extends Component
     {
         return view('livewire.client.profile');
     }
-    public function updatedData($data){
-        if($data = 'test'){
+    public function updatingData($data){
+        if($data === env('QRMATCH','test')){
+            $this->client->scandate=now();
+            $this->client->save();
             return redirect(route('client.finished',$this->client));
         }
-        // dd($data);
-    }
-    public function test() {
-        dd('test');
-    }
-    public function setFooProperty($value) {
-        dd($value);
     }
 }
