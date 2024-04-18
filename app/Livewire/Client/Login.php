@@ -24,8 +24,10 @@ class Login extends Component
 
     public function mount(){
         Auth::logout();
-        $this->name='user';
-        $this->phone='0809166690';
+        if(env('APP_DEBUG',true)){
+            $this->name='user';
+            $this->phone='0809166690';
+        }
         // dd(auth());
         // if(auth()){
         //     return redirect()->intended(route('client.profile'));

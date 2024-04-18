@@ -25,9 +25,11 @@ class Register extends Component
     ];
 
     public function mount(){
-        $this->name='user';
-        $this->phone='0809166690';
-        $this->email='maggotgluon@gmail.com';
+        if(env('APP_DEBUG',true)){
+            $this->name='user';
+            $this->phone='0809166690';
+            $this->email='maggotgluon@gmail.com';
+        }
     }
 
     public function render()
