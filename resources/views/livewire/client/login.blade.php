@@ -8,9 +8,9 @@
     <div>
         <form class="grid gap-4 py-4" wire:submit.prevent="authenticate">
             <label for="name">NAME</label>
-            <x-input wire:model.lazy="name"/>
+            <x-input class="text-primary" wire:model.lazy="name"/>
             <label for="phone">PHONE NO.</label>
-            <x-input wire:model.lazy="phone"/>
+            <x-input class="text-primary" wire:model.lazy="phone"/>
             
         <x-button outline white label="LOGIN" type="submit" wire:click="authenticate"/>
         <x-button outline white label="REGISTER" :href="route('client.register')"/>

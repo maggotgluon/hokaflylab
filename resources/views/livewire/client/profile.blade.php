@@ -14,7 +14,7 @@
     <div>
         <div class="aspect-square w-full bg-black m-auto border-8 border-white rounded-3xl max-w-60">
             <div id="video-container" class="h-full rounded-2xl" >
-                <video id="qr-video" class="h-full rounded-2xl object-cover"></video>
+                <video id="qr-video" class="h-full w-full rounded-2xl object-cover"></video>
             </div>
         </div>
         <h2 class="text-center mt-8 text-xl font-bold">SCAN QR CODE</h2>

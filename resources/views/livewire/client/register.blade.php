@@ -8,11 +8,11 @@
     <div>
         <form class="grid gap-4 py-4" wire:submit.prevent="register">
         <label for="name">NAME</label>
-        <x-input auto-focus wire:model.lazy="name"/>
+        <x-input class="text-primary" auto-focus wire:model.lazy="name"/>
         <label for="phone">PHONE NO.</label>
-        <x-input  wire:model.lazy="phone"/>
+        <x-input class="text-primary" wire:model.lazy="phone"/>
         <label for="email">EMAIL</label>
-        <x-input  wire:model.lazy="email"/>
+        <x-input class="text-primary" wire:model.lazy="email"/>
         <div class=" grid grid-cols-2 gap-4">
             <x-button outline white label="CONFIRM" type="submit" wire:click="register"/>
             <x-button outline white label="CANCEL" :href="route('home')"/>
