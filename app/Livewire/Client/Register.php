@@ -37,7 +37,7 @@ class Register extends Component
         return view('livewire.client.register');
     }
     public function register(){
-
+        $this->name = trim($this->name);
         $client = $this->validate();
         $client['password'] = Hash::make($client['phone']);
         $newClient = client::create($client);
@@ -46,6 +46,5 @@ class Register extends Component
         if($newUser){
             return redirect(route('client.login'));
         }
-        // dd('regis',$client,$newClient,$newUser);
     }
 }

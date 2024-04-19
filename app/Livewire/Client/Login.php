@@ -28,10 +28,7 @@ class Login extends Component
             $this->name='user';
             $this->phone='0809166690';
         }
-        // dd(auth());
-        // if(auth()){
-        //     return redirect()->intended(route('client.profile'));
-        // }
+        
     }
 
     public function render()
@@ -40,25 +37,13 @@ class Login extends Component
     }
 
     public function authenticate(){
+        $this->name = trim($this->name);
         $validateClient = $this->validate();
         $validateClient['password']=Hash::make($validateClient['phone']);
-        // dd($client);
         $client = client::where('name',$validateClient['name'])->where('phone',$validateClient['phone'])->first();
-        // $fuser = User::first();
-        // dd($client->getAuthIdentifierName(),
-        // $client->getAuthIdentifier(),
-        // $client->getAuthPassword());
         Auth::login($client);
-        // Auth::guard('clients')->attempt(['name'=>$validateClient['name'],'password'=>$validateClient['password']]);
-        // dd($client,Auth::check(),Auth::guard('clients')->login($client));
         if(Auth::check()){
-            // dd(auth()->user()->name);
-            // Auth::guard('clients')->login($client);
-            // dd(auth());
             return redirect()->intended(route('client.profile',$client));
-            // dd(Auth::user());
         }
-        // dd('log');
-        // dd('login',$client,$login);
     }
 }
